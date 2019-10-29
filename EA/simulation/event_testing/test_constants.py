@@ -1,1 +1,0 @@
-SIM_INSTANCE = 'sim_instance'TARGET_SIM_ID = 'target_sim_id'FROM_EVENT_DATA = 'from_event_data'FROM_DATA_OBJECT = 'from_data_object'OBJECTIVE_GUID64 = 'objective_guid64'

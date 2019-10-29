@@ -1,4 +1,0 @@
-
-class TunableMinimumLengthError(ValueError):
-    pass
-

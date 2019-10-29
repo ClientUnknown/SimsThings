@@ -1,7 +1,0 @@
-import enumimport routing
-class FootprintKeyMaskBits(enum.IntFlags):
-    SMALL_HEIGHT = routing.FOOTPRINT_KEY_REQUIRE_SMALL_HEIGHT
-    TINY_HEIGHT = routing.FOOTPRINT_KEY_REQUIRE_TINY_HEIGHT
-    FLOATING = routing.FOOTPRINT_KEY_REQUIRE_FLOATING
-    LARGE_HEIGHT = routing.FOOTPRINT_KEY_REQUIRE_LARGE_HEIGHT
-
