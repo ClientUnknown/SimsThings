@@ -1,0 +1,4 @@
+from venues.scheduling_zone_director import SchedulingZoneDirectorfrom venues.visitor_situation_on_arrival_zone_director_mixin import VisitorSituationOnArrivalZoneDirectorMixin
+class ChaletGardenZoneDirector(VisitorSituationOnArrivalZoneDirectorMixin, SchedulingZoneDirector):
+    pass
+
