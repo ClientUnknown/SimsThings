@@ -134,10 +134,10 @@ def _FloatDecoder():
     def InnerDecode(buffer, pos):
         new_pos = pos + 4
         float_bytes = buffer[pos:new_pos]
-        if float_bytes[3] in '\x7fÿ' and float_bytes[2] >= '\x80':
+        if float_bytes[3] in '\x7fÃ¿' and float_bytes[2] >= '\x80':
             if float_bytes[0:3] != '\x00\x00\x80':
                 return (_NAN, new_pos)
-            if float_bytes[3] == 'ÿ':
+            if float_bytes[3] == 'Ã¿':
                 return (_NEG_INF, new_pos)
             return (_POS_INF, new_pos)
         result = local_unpack('<f', float_bytes)[0]
@@ -151,7 +151,7 @@ def _DoubleDecoder():
     def InnerDecode(buffer, pos):
         new_pos = pos + 8
         double_bytes = buffer[pos:new_pos]
-        if double_bytes[7] in '\x7fÿ' and double_bytes[6] >= 'ð' and double_bytes[0:7] != '\x00\x00\x00\x00\x00\x00ð':
+        if double_bytes[7] in '\x7fÃ¿' and double_bytes[6] >= 'Ã°' and double_bytes[0:7] != '\x00\x00\x00\x00\x00\x00Ã°':
             return (_NAN, new_pos)
         result = local_unpack('<d', double_bytes)[0]
         return (result, new_pos)

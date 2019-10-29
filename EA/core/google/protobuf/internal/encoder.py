@@ -388,9 +388,9 @@ def _FloatingPointEncoder(wire_type, format):
             if value == _POS_INF:
                 write('\x00\x00\x80\x7f')
             elif value == _NEG_INF:
-                write('\x00\x00\x80я')
+                write('\x00\x00\x80Гї')
             elif value != value:
-                write('\x00\x00А\x7f')
+                write('\x00\x00ГЂ\x7f')
             else:
                 raise
 
@@ -398,11 +398,11 @@ def _FloatingPointEncoder(wire_type, format):
 
         def EncodeNonFiniteOrRaise(write, value):
             if value == _POS_INF:
-                write('\x00\x00\x00\x00\x00\x00р\x7f')
+                write('\x00\x00\x00\x00\x00\x00Г°\x7f')
             elif value == _NEG_INF:
-                write('\x00\x00\x00\x00\x00\x00ря')
+                write('\x00\x00\x00\x00\x00\x00Г°Гї')
             elif value != value:
-                write('\x00\x00\x00\x00\x00\x00ш\x7f')
+                write('\x00\x00\x00\x00\x00\x00Гё\x7f')
             else:
                 raise
 
