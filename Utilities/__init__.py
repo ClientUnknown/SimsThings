@@ -6,6 +6,7 @@ import io
 from Utilities.unpyc3 import decompile
 import fnmatch
 import os
+import decompile_all_multi as dam
 
 
 def decompile_dir(rootPath):
@@ -34,7 +35,7 @@ def extract_subfolder(root, filename, ea_folder):
     zip = PyZipFile(dst)
     out_folder = os.path.join(ea_folder, os.path.splitext(filename)[0])
     zip.extractall(out_folder)
-    decompile_dir(out_folder)
+    dam.main(out_folder)
     pass
 
 

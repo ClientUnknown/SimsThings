@@ -8,6 +8,7 @@ import io
 from Utilities.unpyc3 import decompile
 import fnmatch
 import os
+import decompile_all_multi as dam
 
 
 def decompile_dir(rootPath):

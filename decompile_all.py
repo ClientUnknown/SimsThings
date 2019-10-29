@@ -11,4 +11,6 @@ gameplay_folder_game = os.path.join(game_folder, 'Game', 'Bin', 'Python')
 extract_folder(ea_folder,gameplay_folder_data)
 extract_folder(ea_folder,gameplay_folder_game)
 
+print("Finished extracting, press enter to end")
+
 input()
