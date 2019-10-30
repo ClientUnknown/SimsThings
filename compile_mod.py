@@ -6,7 +6,7 @@ root = os.path.dirname(os.path.realpath('__file__'))
 mod_name = None
 
 if __name__ == "__main__":
-    mod_name = input("Type the name of your mod and hit enter or just hit enter to skip naming")
+    mod_name = input("Type the name of your mod and hit enter or just hit enter to skip naming: ")
     src = os.path.join(root, 'Scripts')
     if not mod_name:
         mod_name=os.path.basename(os.path.normpath(os.path.dirname(os.path.realpath('__file__'))))
