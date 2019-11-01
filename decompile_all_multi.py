@@ -1,4 +1,4 @@
-import os, multiprocessing, time, re, sys
+import os, multiprocessing, time, re, sys, threading
 import fnmatch, shutil, io
 from zipfile import PyZipFile, ZIP_STORED
 from Utilities.unpyc3 import decompile
@@ -51,11 +51,11 @@ def worker(q):
     for root, dirs, files in os.walk(filename):
         for filename in fnmatch.filter(files, pattern):
             p = str(os.path.join(root, filename))
-            proc = multiprocessing.Process(target=decompile_dir, args=(p,))
-            grand_children.append(proc)
-            proc.start()
-    for proc in grand_children:
-        proc.join(delay_time)
+            thrd = threading.Thread(target=decompile_dir, args=(p,))
+            grand_children.append(thrd)
+            thrd.start()
+    for thrd in grand_children:
+        thrd.join(delay_time)
 
 def run_workers(q):
     print("Spooling up workers...")
