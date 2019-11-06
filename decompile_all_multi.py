@@ -8,8 +8,8 @@ class SimsDecompiler():
         self.delay_time = 2.0
         self.processes = []
         self.ea_folder = "EA"
-        self.gameplay_folder_data = ""#os.path.join(curr_settings.game_folder, 'Data', 'Simulation', 'Gameplay')
-        self.gameplay_folder_game = ""#os.path.join(curr_settings.game_folder, 'Game', 'Bin', 'Python')
+        self.gameplay_folder_data = ""
+        self.gameplay_folder_game = ""
         self.script_package_types = ["*.zip", "*.ts4script"]
         self.q = multiprocessing.Manager().Queue()
 
