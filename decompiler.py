@@ -1,4 +1,4 @@
-import sys, subprocess, os
+import sys, subprocess, os, time, multiprocessing
 import PyQt5.QtWidgets as QtWidgets
 import PyQt5.QtGui
 import settings
@@ -24,13 +24,14 @@ class App(QtWidgets.QWidget):
 
         self.get_creator_name()
         self.get_game_folder()
+        self.run_decompile_all_multi()
 
-        self.run_decompiler()
+        #self.run_decompiler()
 
         self.show()
 
     def get_creator_name(self):
-        creator_name, ok_pressed = QtWidgets.QInputDialog.getText(self, "Creator's Name","Your Name:", QtWidgets.QLineEdit.Normal, "")
+        creator_name, ok_pressed = QtWidgets.QInputDialog.getText(self, "Creator's Name","Your Creator Name:", QtWidgets.QLineEdit.Normal, "")
         if ok_pressed and creator_name != "":
             self.curr_settings.set_creator_name(creator_name)
 
@@ -47,11 +48,23 @@ class App(QtWidgets.QWidget):
         self.curr_decompiler.gameplay_folder_data = os.path.join(self.curr_settings.game_folder, "Data", "Simulation", "Gameplay")
         self.curr_decompiler.gameplay_folder_game = os.path.join(self.curr_settings.game_folder, "Game", "Bin", "Python")
 
-        alert = QtWidgets.QMessageBox()
-        alert.setText("Now running the decompiler...")
-        alert.exec_()
+        #alert = QtWidgets.QMessageBox()
+        #alert.setText("Now running the decompiler...")
+        #alert.exec_()
+
+        start_time = time.time()
+
+        self.curr_decompiler.fill_queue(self.curr_decompiler.gameplay_folder_data)
+        self.curr_decompiler.fill_queue(self.curr_decompiler.gameplay_folder_game)
         
-        self.curr_decompiler.execute_decompiler()
+        for i in range(4):
+            proc = multiprocessing.Process(target=self.curr_decompiler.worker())
+            self.curr_decompiler.processes.append(proc)
+            proc.start()
+        for proc in self.curr_decompiler.processes:
+            proc.join()
+
+        print("This run took %f seconds" % (time.time()-start_time))
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
