@@ -13,10 +13,10 @@ settings.py must always be within the same directory as Python script that is ca
 You will need Python (3.7.5 to be safe) installed to run these files.
 
 If you want to decompile Sims 4's Python scripts just follow these steps:
-  Place settings.py, decompile_all_multi.py, and Utilities in the same directory
-  Open a terminal in the working directory and type "py decompile_all_multi.py" without the quotations to run the script
-  Don't be worried if you see some files failing to decompile, haven't found a way around that
-  Once done you'll have a folder called EA in your working directory with all the decompiled python files
+  * Place settings.py, decompile_all_multi.py, and Utilities in the same directory
+  * Open a terminal in the working directory and type "py decompile_all_multi.py" without the quotations to run the script
+  * Don't be worried if you see some files failing to decompile, haven't found a way around that
+  * Once done you'll have a folder called EA in your working directory with all the decompiled python files
   
  compile_mod.py is run the same way but Utilities is not needed, be sure to run The Sims 4 BEFORE trying to compile a mod.
  
